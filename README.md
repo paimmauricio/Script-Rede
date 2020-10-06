@@ -8,16 +8,16 @@ Totalmente intuitivo
  
 ## Tecnologia 
  
-Linguagem em bash com comandos de Linux para usar o seguinte softwares
+Linguagem em bash com comandos de Linux para usar o seguinte softwares  
  
-1 - TCP Dump = Monitorar os pacotes trafegados numa rede de computadores.
-2 - NMAP = Realiza port scan.
-3 - NSLookUP = Obter informações sobre registros de DNS de um determinado domínio, host ou IP.
-4 - Nikto = Scanner de vulnerabilidades.
-5 - MasScan = Scan de portas.
-6 - Gobuster = Ferramenta para força bruta de URIs (diretórios e arquivos) em sites da web, subdomínios DNS (com suporte a wildcard) e nomes de hosts virtuais (vhosts) em servidores web.
-7 - WhatWeb = Coleta informações de sites, dentre estas informações estão os sistemas utilizados e suas versões, e-mails, estruturas, erros de SQL entre outras.
-8 - apt = Para instalar, remover e pesquisar softwares
+1 - TCP Dump = Monitorar os pacotes trafegados numa rede de computadores.  
+2 - NMAP = Realiza port scan.  
+3 - NSLookUP = Obter informações sobre registros de DNS de um determinado domínio, host ou IP.  
+4 - Nikto = Scanner de vulnerabilidades.  
+5 - MasScan = Scan de portas.  
+6 - Gobuster = Ferramenta para força bruta de URIs (diretórios e arquivos) em sites da web, subdomínios DNS (com suporte a wildcard) e nomes de hosts virtuais (vhosts) em servidores web.  
+7 - WhatWeb = Coleta informações de sites, dentre estas informações estão os sistemas utilizados e suas versões, e-mails, estruturas, erros de SQL entre outras.  
+8 - apt = Para instalar, remover e pesquisar softwares  
  
 ## Como usar
      Abra o terminal e execute os seguintes comandos:
