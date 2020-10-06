@@ -6,7 +6,7 @@
 # Data: 04/10/2020
 # Script Rede
 # Ao usar o script você assume
-# TODA a responsabilidade por seu uso
+# TODA a responsabilidade por seu uso 
 #
 ##################################
 Principal ()
