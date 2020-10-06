@@ -28,7 +28,7 @@ Linguagem em bash com comandos de Linux para usar o seguinte softwares
     Verifique se a instalação ocorreu com sucesso usando git --version.
     Execute os seguintes comandos no terminal para configurar seu e-mail e nome de usuário que serão associados à sua conta GIT:
 
-    	#git config --global user.name "João Silva" 
+    	#git config --global user.name "Seu_Username" 
     	#git config --global user.email "exemplo@seuemail.com.br"
 
     Baixe o repositório
