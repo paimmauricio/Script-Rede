@@ -48,12 +48,9 @@ Linguagem em bash com comandos de Linux para usar o seguinte softwares
 		remote: Total 9 (delta 0), reused 0 (delta 0), pack-reused 0
 		Unpacking objects: 100% (9/9), 28.07 KiB | 1.48 MiB/s, done.
 
-Para transformar o arquivo rede.sh em executável, digite:
+    Para transformar o arquivo rede.sh em executável, digite: chmod +x rede.sh
 
-    chmod +x rede.sh
-
-Para executá-lo digite:
-    ./rede.sh
+    Para executá-lo digite: ./rede.sh
 
 
 
