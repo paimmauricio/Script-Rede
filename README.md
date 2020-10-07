@@ -69,7 +69,7 @@ Permissions of this strong copyleft license are conditioned on making available 
 	Private use	|
 
 
-## Versionamento
+## Versão
 
 2.2
 
