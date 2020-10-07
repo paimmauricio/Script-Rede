@@ -2,7 +2,7 @@
 #################################
 #
 # Autor: Maurício Paim - paim.mauricio@gmail.com
-# Versão: 1.2
+# Versão: 2.2
 # Data: 04/10/2020
 # Script Rede
 # Ao usar o script você assume

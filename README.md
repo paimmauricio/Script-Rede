@@ -71,7 +71,7 @@ Permissions of this strong copyleft license are conditioned on making available 
 
 ## Versionamento
 
-1.2
+2.2
 
 
 ## Autor
