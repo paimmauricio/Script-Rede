@@ -1,4 +1,4 @@
-![Logo of the project](https://github.com/paimmauricio/Script-Rede/blob/main/logo.png)
+![Logo of the project](https://github.com/paimmauricio/Script-Rede/blob/main/imagens/logo.png)
 
 ## Script bash para rede para LINUX
 
