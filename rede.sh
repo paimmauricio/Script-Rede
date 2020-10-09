@@ -2,20 +2,43 @@
 #################################
 #
 # Autor: Maurício Paim - paim.mauricio@gmail.com
-# Versão: 2.2
-# Data: 04/10/2020
+# Versão: 2.3
+# Data: 08/10/2020
 # Script Rede
 # Ao usar o script você assume
 # TODA a responsabilidade por seu uso 
 #
 ##################################
+
+#------------------  Cores Início  ------------------#
+
+# variaveis
+corPadrao="\033[0m"
+preto="\033[0;30m"
+vermelho="\033[0;31m"
+verde="\033[0;32m"
+marrom="\033[0;33m"
+azul="\033[0;34m"
+purple="\033[0;35m"
+cyan="\033[0;36m"
+cinzaClaro="\033[0;37m"
+pretoCinza="\033[1;30m"
+vermelhoClaro="\033[1;31m"
+verdeClaro="\033[1;32m"
+amarelo="\033[1;33m"
+azulClaro="\033[1;34m"
+purpleClaro="\033[1;35m"
+cyanClaro="\033[1;36m"
+branco="\033[1;37m"
+
+#------------------  Cores Fim  ------------------#
 Principal ()
 {
 	clear
 	echo
 	echo
-  echo
-  echo
+  	echo
+ 	echo
 	echo
 	echo
 	#-------------   Menu Principal Início   -----------#
@@ -27,7 +50,8 @@ Principal ()
 	echo "      5 - MasScan"
 	echo "      6 - Reconhecimento"
 	echo "      7 - Softwares"
-	echo "      8 - Sair"
+	echo "      8 - Doação"
+	echo "      9 - Sair"
 	echo "-----------------------------------------------------"
 	echo -n "Escolha uma das opções: "
 	read OPCAO
@@ -42,7 +66,8 @@ Principal ()
 		5 ) MasScan;;
 		6 ) Reconhecimento;;
 		7 ) Software;;
-		8 ) echo; echo; echo ".........Bye Bye........."; sleep 2; clear; exit 0;;
+		8 ) Doacao;;
+		9 ) echo; echo; echo ".........Bye Bye........."; sleep 2; clear; exit 0;;
 		* ) echo; echo; echo "Opção inválida"; sleep 3; Principal;;
 	esac
 }
@@ -1227,7 +1252,7 @@ Software ()
 						fi;;
 				6 )
 					clear
-				  echo "------------------------------------------- "
+					echo "------------------------------------------- "
 					echo "   Atualizando lista de softwares           "
 					echo "------------------------------------------- "
 					echo
@@ -1268,6 +1293,83 @@ Software ()
 		}
 
 		#-------------   7 - Softwares Fim   -----------#
+
+
+		#-------------   8 - Doação Início   -----------#
+
+Doacao ()
+	{
+		clear
+		echo
+		echo
+		echo "------------------------------------------- "
+		echo "                  Doação                    "
+		echo "------------------------------------------- "
+		echo
+		echo
+			while true
+				do
+					echo "Se você gostou do meu script se quiser pode me pagar um café."
+					echo "1 - Ver QR Code Mercado Livre"
+					echo "2 - Ver QR Code Nubank"
+					echo "3 - Ver dados bancários (transferência)"
+					echo "4 - Voltar"
+					echo "Digite o número da opção: "
+					read DOACAO
+					
+					if [[ "$DOACAO" = "1" ]]
+					then
+						echo
+						echo
+						echo " Seu navegador irá abrir em seguida!"
+						sleep 3
+						echo
+						echo
+							gio open "https://github.com/paimmauricio/Script-Rede/blob/main/QRs/QR_Code_ML.pdf"
+						clear
+						Doacao;
+					elif [[ "$DOACAO" = "2" ]]
+					then
+						echo
+						echo
+						echo " Seu navegador irá abrir em seguida!"
+						sleep 3
+						echo
+						echo
+							gio open "https://github.com/paimmauricio/Script-Rede/blob/main/QRs/QR_Code_Nubank.pdf"
+						clear
+						Doacao;
+					elif [[ "$DOACAO" = "3" ]]
+					then
+						echo
+						echo
+						echo -e "		\033[0;31m Agência\033[0m : \033[44;1;37m 0001 \033[0m"
+						echo -e "		\033[0;31m   C/C\033[0m : \033[44;1;37m281087-1 \033[0m"
+						echo -e "	\033[0;31m Banco 260 - Nu Pagamentos S.A. (Nubank) \033[0m"
+						echo
+						echo
+						echo
+						echo "Aperte o ENTER pra continuar";						
+						read
+						echo
+						echo
+						clear
+						Doacao;
+						elif [[ "$DOACAO" = "4" ]]
+					then
+						clear
+						Principal;
+						elif [[ "$DOACAO" -ne "1,2,3,4" ]]
+					then	
+						clear
+						echo
+						echo "Opção inválida"; sleep 3; Doacao;
+					
+					fi
+				done
+	}
+
+		#-------------   8 - Doação Fim   -----------#
 
 
 
