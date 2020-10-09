@@ -32,15 +32,11 @@ cyanClaro="\033[1;36m"
 branco="\033[1;37m"
 
 #------------------  Cores Fim  ------------------#
+
+
 Principal ()
 {
 	clear
-	echo
-	echo
-  	echo
- 	echo
-	echo
-	echo
 	#-------------   Menu Principal Início   -----------#
 	echo "-----------------------------------------------------"
 	echo "      1 - TCP Dump"
@@ -50,8 +46,9 @@ Principal ()
 	echo "      5 - MasScan"
 	echo "      6 - Reconhecimento"
 	echo "      7 - Softwares"
-	echo "      8 - Doação"
-	echo "      9 - Sair"
+	echo "      8 - Informações de IP"
+	echo "      9 - Doação"
+	echo "      x - Sair"
 	echo "-----------------------------------------------------"
 	echo -n "Escolha uma das opções: "
 	read OPCAO
@@ -66,8 +63,9 @@ Principal ()
 		5 ) MasScan;;
 		6 ) Reconhecimento;;
 		7 ) Software;;
-		8 ) Doacao;;
-		9 ) echo; echo; echo ".........Bye Bye........."; sleep 2; clear; exit 0;;
+		8 ) IPs;;
+		9 ) Doacao;;
+	        x ) echo; echo; echo ".........Bye Bye........."; sleep 2; clear; exit 0;;
 		* ) echo; echo; echo "Opção inválida"; sleep 3; Principal;;
 	esac
 }
@@ -78,6 +76,12 @@ Principal ()
 TCPDump ()
 {
 	 	clear
+		echo
+		echo
+	  	echo
+	 	echo
+		echo
+		echo
 		echo "------------------------------------------ "
 		echo "Escolha a placa de rede"
 		echo "------------------------------------------ "
@@ -95,7 +99,7 @@ TCPDump ()
 		echo "3 - Placa nº 1 - Sem log"
 		echo "4 - Placa nº 2 - Sem log"
 		echo "5 - Mostrar placas de redes"
-		echo "6 - Apagar TODOS arquivos de LOG"
+		echo -e "6 - \033[01;31mApagar\033[0m \033[01;5;31mTODOS\033[0m arquivos de LOG"
 		echo "7 - Menu Principal"
 		echo "------------------------------------------ "
 		echo
@@ -306,6 +310,13 @@ TCPDump ()
 NMAP ()
 {
 	clear
+
+	echo
+	echo
+	echo
+	echo
+	echo
+	echo
 	echo "------------------------------------------- "
 	echo "                    NMAP                    "
 	echo "------------------------------------------- "
@@ -316,7 +327,8 @@ NMAP ()
 	echo "2 - IPV 4 - Completo"
 	echo "3 - IPV 4 - Verifica se host está UP"
 	echo "4 - Ler arquivo de coleta"
-	echo "5 - Limpar TODOS arquivos de LOG"
+	echo -e "5 - \033[01;31mApagar\033[0m \033[01;5;31mTODOS\033[0m arquivos de LOG"
+	
 	echo "6 - Menu Principal"
 	echo "------------------------------------------ "
 	echo
@@ -420,9 +432,15 @@ NMAP ()
 	      NMAP;;
         4 ) clear
 				    echo
+				    echo
+				    echo
+				    echo
+				    echo
+				    echo
+				    echo
 				    echo "------------------------------------------ "
 				    echo
-				    echo " 			Ler arquivos coletados"
+				    echo " 	Ler arquivos coletados		     "
 				    echo
 				    echo "------------------------------------------ "
 				    echo
@@ -554,6 +572,7 @@ NMAP ()
 NSLookUP ()
 {
 	clear
+
 	echo "------------------------------------------- "
 	echo "                NSLookUP                    "
 	echo "------------------------------------------- "
@@ -564,7 +583,7 @@ NSLookUP ()
 	echo "2 - NSLooUP Padrão - Salvando"
 	echo "3 - NSLooUP MX, NS e SOA"
 	echo "4 - NSLooUP MX, NS e SOA - Salvando"
-	echo "5 - Apagar TODOS arquivos salvos"
+	echo -e "5 - \033[01;31mApagar\033[0m \033[01;5;31mTODOS\033[0m arquivos de LOG"
 	echo "6 - Menu Principal"
 	echo "------------------------------------------- "
 	echo
@@ -765,7 +784,7 @@ Nikto ()
 		echo "------------------------------------------- "
 		echo "1 - Pesquisar"
 		echo "2 - Atualizar"
-		echo "3 - Apagar TODOS os arquivos salvos"
+		echo -e "3 - \033[01;31mApagar\033[0m \033[01;5;31mTODOS\033[0m arquivos de LOG"
 		echo "4 - Menu Principal"
 		echo "------------------------------------------- "
 		echo
@@ -780,12 +799,6 @@ Nikto ()
 		        echo "------------------------------------------ "
 		        read HOST
 		        echo
-#		        echo "------------------------------------------ "
-#		        echo
-#		        echo "Qual o nome do arquivo a ser salvo";
-#		        echo
-#		        echo "------------------------------------------ "
-		        #read ARQ
 		        echo
 						echo
 						if [ ! -d "$HOME/Script/NIKTO" ]; then
@@ -916,7 +929,7 @@ MasScan ()
 		echo
 		echo "------------------------------------------- "
 		echo "1 - Scan simples"
-		echo "2 - Apagar TODOS o(s) Arquivo(s) pause.conf"
+		echo -e "2 - \033[01;31mApagar\033[0m \033[01;5;31mTODOS\033[0m o(s) Arquivo(s) pause.conf"
 		echo "3 - Menu Principal"
 		echo "------------------------------------------- "
 		echo
@@ -925,21 +938,24 @@ MasScan ()
 		    1 ) clear
 		        echo
 		        echo "------------------------------------------- "
-						echo "             Scan simples                   "
-						echo "------------------------------------------- "
-						echo
-						echo
-						echo
-						echo "------------------------------------------ "
-						echo
-						echo "Digite o IP ou range a ser scaneado"
-						echo
-						echo "------------------------------------------ "
-						read IP
-						echo
-						if [ ! -d "$HOME/Script/MasScan" ]; then
-											mkdir -p $HOME/Script/MasScan/
-						fi;
+			echo "             Scan simples                   "
+			echo "------------------------------------------- "
+			echo
+			echo
+			echo
+			echo "------------------------------------------ "
+			echo
+			echo "Digite o IP ou range a ser scaneado"
+			echo
+			echo "------------------------------------------ "
+			echo
+			echo
+			read IP
+			echo
+				if [ ! -d "$HOME/Script/MasScan" ]; then
+					mkdir -p $HOME/Script/MasScan/
+				fi;
+
 		        if [ ! -d "$HOME/Script/MasScan/$(date +%d-%m-%Y)_"$IP"_paused.conf" ]; then
 	                	touch $HOME/Script/MasScan/$(date +%d-%m-%Y)_"$IP"_paused.conf;
 	          fi;
@@ -963,59 +979,58 @@ MasScan ()
 				    MasScan;;
 
 				 2 )
-										 clear
-										 echo "------------------------------------------ "
-										 echo "  Lista de arquivos que serão deletados    "
-										 echo "------------------------------------------ "
-										 echo
-											 cd $HOME/Script/MasScan/
-											 pwd
-											 echo
-											 cd - >/dev/null
-											 echo
-											 ls -lah $HOME/Script/MasScan/
-										 echo
-										 echo
-										 echo "------------------------------------------ "
-										 echo "Deseja realmente deletar o(s) arquivo(s)?"
-										 echo "   Digite s ou n"
-										 echo "------------------------------------------ "
-										 read RESP
-										 echo
-										 echo
-											 while [ "$RESP" != "s" -a "$RESP" != "n" ]; do
-															 echo
-												 echo "Opção inválida. Digite s ou n"
-												 read RESP
-												 done
-												 if [ "$RESP" = "s" ]; then
-													 echo
-													 echo
-													 echo "------------------------------------------ "
-													 echo "        Apagando arquivos de LOG           "
-													 echo "------------------------------------------ "
-													 echo
-
-														 rm -rf $HOME/Script/MasScan/*.*
-													 echo
-													 echo
-													 echo "------------------------------------------ "
-													 echo "       Arquivos de LOG deletados	  			 "
-													 echo "------------------------------------------ "
-													 echo
-													 echo
-													 echo
-													 echo "Aperte o ENTER pra continuar"
-													 read
-													 MasScan;
-												 fi
-													 if [ "$RESP" = "n" ]; then
-																		 echo
-																		 echo "Voltando para o menu do NMAP"
-																		 sleep 1;MasScan;
-													 fi;
-													 MasScan;;
-				 3 ) Principal;;
+					 clear
+					 echo "------------------------------------------ "
+					 echo "  Lista de arquivos que serão deletados    "
+					 echo "------------------------------------------ "
+					 echo
+						 cd $HOME/Script/MasScan/
+						 pwd
+						 echo
+						 cd - >/dev/null
+						 echo
+						 ls -lah $HOME/Script/MasScan/
+					 echo
+					 echo
+					 echo "------------------------------------------ "
+					 echo "Deseja realmente deletar o(s) arquivo(s)?"
+					 echo "   Digite s ou n"
+					 echo "------------------------------------------ "
+					 read RESP
+					 echo
+					 echo
+						 while [ "$RESP" != "s" -a "$RESP" != "n" ]; do
+							 echo
+							 echo "Opção inválida. Digite s ou n"
+							 read RESP
+						 done
+							 if [ "$RESP" = "s" ]; then
+								 echo
+								 echo
+								 echo "------------------------------------------ "
+								 echo "        Apagando arquivos de LOG           "
+								 echo "------------------------------------------ "
+								 echo
+									 rm -rf $HOME/Script/MasScan/*.*
+								 echo
+								 echo
+								 echo "------------------------------------------ "
+								 echo "       Arquivos de LOG deletados	  			 "
+								 echo "------------------------------------------ "
+								 echo
+								 echo
+								 echo
+								 echo "Aperte o ENTER pra continuar"
+								 read
+								 MasScan;
+							 fi
+								 if [ "$RESP" = "n" ]; then
+									 echo
+									 echo "Voltando para o menu do NMAP"
+									 sleep 1;MasScan;
+								 fi;
+								 MasScan;;
+			 3 ) Principal;;
 				 * ) echo "Opção inválida"; sleep 3; MasScan;;
   	esac
 	}
@@ -1129,8 +1144,8 @@ Software ()
 			echo "1 - Pesquisa software"
 			echo "2 - Instalar software"
 			echo "3 - Instalar softwares do script"
-			echo "4 - Remover software"
-			echo "5 - Remover softwares do script"
+			echo -e "4 - \033[01;5;31mRemover\033[0m software"
+			echo "5 - \033[01;5;31mRemover\033[0m softwares do script"
 			echo "6 - Atualizar todos os software"
 			echo "7 - Menu Principal"
 			echo "------------------------------------------- "
@@ -1201,6 +1216,9 @@ Software ()
 					echo "   Instalar softwares do script             "
 					echo "------------------------------------------- "
 					echo
+					echo "------------------------------------------- "
+					echo "masscan nikto tcpdump nmap dnsutils"
+					echo "------------------------------------------- "
 					echo "Deseja realmente instalar?"
 					read RESP
 						if [ $RESP = s ]; then
@@ -1236,6 +1254,10 @@ Software ()
 					clear
 					echo "------------------------------------------- "
 					echo "   Remover softwares do script              "
+					echo "------------------------------------------- "
+					echo
+					echo "------------------------------------------- "
+					echo "masscan nikto tcpdump nmap dnsutils"
 					echo "------------------------------------------- "
 					echo
 					echo "Deseja realmente remover?"
@@ -1294,8 +1316,169 @@ Software ()
 
 		#-------------   7 - Softwares Fim   -----------#
 
+		#-------------   8 - Informações do IP Início   -----------#
 
-		#-------------   8 - Doação Início   -----------#
+IPs ()
+	{
+			clear
+			echo "------------------------------------------- "
+			echo "                Infomações IP               "
+			echo "------------------------------------------- "
+			echo
+			echo
+			
+				while true
+					 do
+						echo "------------------------------------------- "
+						echo "1 - IP Externo - Real"
+						echo "2 - IP Interno - Local/Sistema"
+						echo "3 - Menu Principal"
+						echo "------------------------------------------- "
+						echo
+						read NUM
+						if [[ "$NUM" = "1" ]]
+						then
+						#-------------    Informações do IP Externo Início   -----------#
+
+								IP_EXTERNO=$(wget -qO- http://ipecho.net/plain)
+
+								pais=$(curl ipinfo.io/"$IP_EXTERNO"/country 2>/dev/null)
+
+								loc=$(curl ipinfo.io/"$IP_EXTERNO"/loc 2>/dev/null)
+								
+								cidade=$(curl ipinfo.io/"$IP_EXTERNO"/city 2>/dev/null)
+								
+								org=$(curl ipinfo.io/"$IP_EXTERNO"/org 2>/dev/null)
+								
+								postal=$(curl ipinfo.io/"$IP_EXTERNO"/postal 2>/dev/null)
+								
+								regiao=$(curl ipinfo.io/"$IP_EXTERNO"/region 2>/dev/null)
+								
+								hostname=$(curl ipinfo.io/"$IP_EXTERNO"/hostname 2>/dev/null)
+								
+								fuso=$(curl ipinfo.io/"$IP_EXTERNO"/timezone 2>/dev/null)
+
+								clear
+								echo -e "  IP Externo: \033[01;5;31m$IP_EXTERNO\033[0m"
+								echo -e "      Região: $regiao"
+								echo -e " Localização: $loc"
+								echo -e "      Cidade: $cidade"
+								echo -e "      Postal: $postal"
+								echo -e "    Hostname: $hostname"
+								echo -e " Organização: $org"
+								echo -e "Fuso Horario: $fuso"
+								echo
+								echo
+								echo
+								echo "Aperte o ENTER pra continuar";
+								read
+								clear
+								IPs;				
+							
+							
+								#-------------    Informações do IP Externo Fim   -----------#
+
+						elif [[ "$NUM" = "2" ]]
+							then
+								echo
+								echo
+								echo "------------------------------------------ "
+								echo "	Informações do IP Interno e Sistema	 "
+								echo "------------------------------------------ "
+								echo
+								echo
+
+								#-------------    Informações do IP Interno Início   -----------#
+
+								IP_INTERNO=$(hostname -I | awk '{print $1}' 2>/dev/null)
+
+								SO1=$(sudo lsb_release -a 2>/dev/null)
+
+								SO2=$(sudo getconf LONG_BIT 2>/dev/null)
+
+								SO3=$(sudo uptime 2>/dev/null)
+
+								SO4=$(sudo dmidecode -t 1, 12, 15, 23, 32 2>/dev/null)
+
+								BIOS=$(sudo dmidecode -t 0, 13 2>/dev/null)
+
+								PROCESSADOR=$(sudo dmidecode -t 4 2>/dev/null)
+
+								ESTATISTICA=$(sudo mpstat 2>/dev/null)
+
+								MEMORIA=$(sudo dmidecode -t 5, 6, 16, 17 2>/dev/null)
+								clear
+								echo "------------------------------------------ "
+								echo -e "    \033[01;31mIP Local\033[0m: \033[44;1;5;37m\n\t$IP_INTERNO\033[0m"
+								echo  "------------------------------------------ "
+								echo
+								echo
+								echo "------------------------------------------ "
+								echo -e "     \033[01;31mSistema 1\033[0m: \033[44;1;37m\n\t$SO1\033[0m"
+								echo "------------------------------------------ "
+								echo
+								echo
+								echo "------------------------------------------ "
+								echo -e "     \033[01;31mSistema 2\033[0m: \033[44;1;37m\n\t$SO2\033[0m"
+								echo "------------------------------------------ "
+								echo
+								echo
+								echo "------------------------------------------ "
+								echo -e "     \033[01;31mSistema 3\033[0m: \033[44;1;37m\n\t$SO3\033[0m"
+								echo "------------------------------------------ "
+								echo
+								echo
+								echo "------------------------------------------ "
+								echo -e "     \033[01;31mSistema 4\033[0m: \033[44;1;37m\n\t$SO4\033[0m"
+								echo "------------------------------------------ "
+								echo
+								echo
+								echo "------------------------------------------ "
+								echo -e "	 \033[01;31mBios\033[0m: \033[44;1;37m\n\t$BIOS\033[0m"
+								echo "------------------------------------------ "
+								echo
+								echo
+								echo "------------------------------------------ "
+								echo -e " \033[01;31mProcessador\033[0m: \033[44;1;37m\n\t$PROCESSADOR\033[0m"
+								echo "------------------------------------------ "
+								echo
+								echo
+								echo "------------------------------------------ "
+								echo -e " \033[01;31mEstatistica do Processador\033[0m:\n\t$ESTATISTICA\033[0m"
+								echo "------------------------------------------ "
+								echo
+								echo
+								echo "------------------------------------------ "
+								echo -e -n " \033[01;31mProcessador\033[0m: \033[44;1;37m\n\t$MEMORIA\033[0m"
+								echo "------------------------------------------ "
+								echo
+								echo
+								echo
+								echo "Aperte o ENTER pra continuar";
+								read
+								clear
+								IPs;
+							
+							elif [[ "$NUM" = "3" ]]
+								then
+									clear
+									Principal;
+							elif [[ "$NUM" -ne "1, 2, 3" ]]
+								then
+									clear
+									echo
+									echo "Opção inválida"; sleep 3; Doacao;
+						
+					fi
+				done
+						
+						#-------------    Informações do IP Interno Fim   -----------#
+	}
+
+		#-------------   8 - Informações do IP Fim   -----------#
+
+
+		#-------------   9 - Doação Início   -----------#
 
 Doacao ()
 	{
@@ -1310,8 +1493,8 @@ Doacao ()
 			while true
 				do
 					echo "Se você gostou do meu script se quiser pode me pagar um café."
-					echo "1 - Ver QR Code Mercado Livre"
-					echo "2 - Ver QR Code Nubank"
+					echo -e "1 - Ver QR Code \033[1;33mMercado Livre\033[0m"
+					echo -e "2 - Ver QR Code \033[01;35mNubank\033[0m"
 					echo "3 - Ver dados bancários (transferência)"
 					echo "4 - Voltar"
 					echo "Digite o número da opção: "
@@ -1341,11 +1524,12 @@ Doacao ()
 						Doacao;
 					elif [[ "$DOACAO" = "3" ]]
 					then
+						clear
 						echo
 						echo
-						echo -e "		\033[0;31m Agência\033[0m : \033[44;1;37m 0001 \033[0m"
-						echo -e "		\033[0;31m   C/C\033[0m : \033[44;1;37m281087-1 \033[0m"
-						echo -e "	\033[0;31m Banco 260 - Nu Pagamentos S.A. (Nubank) \033[0m"
+						echo -e "		\033[01;35mAgência\033[0m : \033[44;1;37m 0001 \033[0m"
+						echo -e "		\033[01;35m   C/C\033[0m : \033[44;1;37m281087-1 \033[0m"
+						echo -e "	\033[01;35m Banco 260 - Nu Pagamentos S.A. (Nubank) \033[0m"
 						echo
 						echo
 						echo
@@ -1369,7 +1553,7 @@ Doacao ()
 				done
 	}
 
-		#-------------   8 - Doação Fim   -----------#
+		#-------------   9 - Doação Fim   -----------#
 
 
 
