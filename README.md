@@ -79,10 +79,10 @@ C/C: 281087-1
 Banco 260 - Nu Pagamentos S.A. (Nubank)
 
 ##Via QR Code Nubank
-<img src="https://github.com/paimmauricio/Script-Rede/blob/main/QRs/QR_Code_Nubank.pdf">
+<a href="https://github.com/paimmauricio/Script-Rede/blob/main/QRs/QR_Code_Nubank.pdf"> QR Code Nubank</a>
 
 ## Via QR Code Mercado Pago
-<img src="https://github.com/paimmauricio/Script-Rede/blob/main/QRs/QR_Code_ML.pdf">
+<a href="https://github.com/paimmauricio/Script-Rede/blob/main/QRs/QR_Code_ML.pdf"> QR Code Mercado Pago</a>
 
 
 ## Versão
