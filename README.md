@@ -17,7 +17,8 @@ Linguagem em bash com comandos de Linux para usar o seguinte softwares
 5 - MasScan = Scan de portas.  
 6 - Gobuster = Ferramenta para força bruta de URIs (diretórios e arquivos) em sites da web, subdomínios DNS (com suporte a wildcard) e nomes de hosts virtuais (vhosts) em servidores web.  
 7 - WhatWeb = Coleta informações de sites, dentre estas informações estão os sistemas utilizados e suas versões, e-mails, estruturas, erros de SQL entre outras.  
-8 - apt = Para instalar, remover e pesquisar softwares  
+8 - apt = Para instalar, remover e pesquisar softwares
+9 - Sherlok = Pesquesa de usuários em mídias sociais
 
 ## Como usar
      Abra o terminal e execute os seguintes comandos:
@@ -68,10 +69,25 @@ Permissions of this strong copyleft license are conditioned on making available 
 	Patent use	|			|	Same license
 	Private use	|
 
+## Doação
+Se você gostou do meu script e quiser, pode me pagar um café.
+If you liked my script if you want you can buy me a coffee.
+
+## Via transferência NuBank
+Agência: 0001
+C/C: 281087-1
+Banco 260 - Nu Pagamentos S.A. (Nubank)
+
+##Via QR Code Nubank
+<img src="https://github.com/paimmauricio/Script-Rede/blob/main/QRs/QR_Code_Nubank.pdf">
+
+## Via QR Code Mercado Pago
+<img src="https://github.com/paimmauricio/Script-Rede/blob/main/QRs/QR_Code_ML.pdf">
+
 
 ## Versão
 
-2.2
+2.3
 
 
 ## Autor

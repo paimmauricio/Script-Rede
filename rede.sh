@@ -47,7 +47,8 @@ Principal ()
 	echo "      6 - Reconhecimento"
 	echo "      7 - Softwares"
 	echo "      8 - Informações de IP"
-	echo "      9 - Doação"
+	echo "      9 - Informações de Mídias Sociais"
+	echo "      d - Doação"
 	echo "      x - Sair"
 	echo "-----------------------------------------------------"
 	echo -n "Escolha uma das opções: "
@@ -64,7 +65,8 @@ Principal ()
 		6 ) Reconhecimento;;
 		7 ) Software;;
 		8 ) IPs;;
-		9 ) Doacao;;
+		9 ) Midias;;
+		d ) Doacao;;
 	        x ) echo; echo; echo ".........Bye Bye........."; sleep 2; clear; exit 0;;
 		* ) echo; echo; echo "Opção inválida"; sleep 3; Principal;;
 	esac
@@ -326,10 +328,11 @@ NMAP ()
 	echo "1 - IPV 4 - Padrão"
 	echo "2 - IPV 4 - Completo"
 	echo "3 - IPV 4 - Verifica se host está UP"
-	echo "4 - Ler arquivo de coleta"
-	echo -e "5 - \033[01;31mApagar\033[0m \033[01;5;31mTODOS\033[0m arquivos de LOG"
+	echo "4 - SSL - Pesquisa SSL"
+	echo "5 - Ler arquivo de coleta"
+	echo -e "6 - \033[01;31mApagar\033[0m \033[01;5;31mTODOS\033[0m arquivos de LOG"
 	
-	echo "6 - Menu Principal"
+	echo "7 - Menu Principal"
 	echo "------------------------------------------ "
 	echo
 	read NUM
@@ -358,10 +361,10 @@ NMAP ()
 						fi;
 	            echo
 	            echo "------------------------------------------ "
-							echo "O arquivo de coleta é: "$HOME/Script/NMAP/$(date +%d-%m-%Y)_padrao.txt;
+							echo "O arquivo de coleta é: "$HOME/Script/NMAP/$(date +%d-%m-%Y)_"$IP"_padrao.txt;
 							echo "------------------------------------------ "
 							echo
-							sudo nmap $DESTINO >> $HOME/Script/NMAP/$(date +%d-%m-%Y)_padrao.txt;
+							sudo nmap $DESTINO >> $HOME/Script/NMAP/$(date +%d-%m-%Y)_"$IP"_padrao.txt;
 							echo
 							echo "Aperte o ENTER pra continuar";
 							echo
@@ -391,9 +394,9 @@ NMAP ()
 						    echo
 					fi;
 	      echo
-				echo "O arquivo de coleta é: "$HOME/Script/NMAP/$(date +%d-%m-%Y)_completo.txt;
+				echo "O arquivo de coleta é: "$HOME/Script/NMAP/$(date +%d-%m-%Y)_"$IP"_completo.txt;
 				echo
-						sudo nmap -A -R -T4 $DESTINO >> $HOME/Script/NMAP/$(date +%d-%m-%Y)_completo.txt;
+						sudo nmap -A -R -T4 $DESTINO >> $HOME/Script/NMAP/$(date +%d-%m-%Y)_"$IP"_completo.txt;
 				echo
 				echo "Aperte o ENTER pra continuar";
 				echo
@@ -422,15 +425,57 @@ NMAP ()
 					    						mkdir -p $HOME/Script/NMAP
 					fi;
 				echo
-				echo "O arquivo de coleta é: "$HOME/Script/NMAP/$(date +%d-%m-%Y)_UP.txt;
+				echo "O arquivo de coleta é: "$HOME/Script/NMAP/$(date +%d-%m-%Y)_"$IP"_UP.txt;
 				echo
-						sudo nmap -sP -R -T4 $DESTINO >> $HOME/Script/NMAP/$(date +%d-%m-%Y)_UP.txt;
+						sudo nmap -sP -R -T4 $DESTINO >> $HOME/Script/NMAP/$(date +%d-%m-%Y)_"$IP"_UP.txt;
 				echo
 				echo "Aperte o ENTER pra continuar";
 				echo
 	      read
 	      NMAP;;
-        4 ) clear
+
+4 ) clear
+		    echo
+		    echo "------------------------------------------ "
+		    echo
+		    echo "          SSL"
+		    echo "Digite o IP ou Site sem WWW"
+		    echo
+		    echo "------------------------------------------ "
+		    echo
+				read IP;
+		    echo
+		    echo "------------------------------------------ "
+		    echo
+		    echo "     SSL"
+		    echo "Digite a porta "
+		    echo
+		    echo "------------------------------------------ "
+		    echo
+				read PORTA;
+				echo
+			if [ ! -d "$HOME/Script/NMAP" ]; then
+				echo "------------------------------------------ "
+				echo " Diretório não existe e será criado        "
+				echo "------------------------------------------ "
+				echo
+				echo "------------------------------------------ "
+				echo " Criando diretório                         "
+				echo "------------------------------------------ "
+				echo
+				mkdir -p $HOME/Script/NMAP
+				echo
+			fi;
+				echo
+				echo "O arquivo de coleta é: "$HOME/Script/NMAP/$(date +%d-%m-%Y)_"$IP"_ssl.txt;
+				echo
+				nmap -v -v --script ssl-cert,ssl-enum-ciphers -p $PORTA $IP >> $HOME/Script/NMAP/$(date +%d-%m-%Y)_"$IP"_ssl.txt;
+				echo
+				echo "Aperte o ENTER pra continuar";
+				echo
+				read
+				NMAP;;
+        5 ) clear
 				    echo
 				    echo
 				    echo
@@ -448,7 +493,8 @@ NMAP ()
 				    echo " 1 - Padrão"
 				    echo " 2 - Completo"
 				    echo " 3 - Host UP"
-				    echo " 4 - Menu NMAP"
+				    echo " 4 - SSL"
+				    echo " 5 - Menu NMAP"
 				    echo "------------------------------------------ "
 				    echo
 					    read NUM
@@ -458,11 +504,11 @@ NMAP ()
 					       echo "                   Padrão                  "
 					       echo "------------------------------------------ "
 					       echo
-						   				cat $HOME/Script/NMAP/$(date +%d-%m-%Y)_padrao.txt
+						   				cat $HOME/Script/NMAP/$(date +%d-%m-%Y)_"$IP"_padrao.txt
 				    		 echo
 							   echo
 							   echo "------------------------------------------ "
-							   echo "				Aperte o ENTER pra continuar"
+							   echo "Aperte o ENTER pra continuar"
 							   echo "------------------------------------------ "
 							   echo
 							 	 read;
@@ -490,25 +536,39 @@ NMAP ()
 								      echo "               HOSTs UP                    "
 								      echo "------------------------------------------ "
 								      echo
-						              cat $HOME/Script/NMAP/$(date +%d-%m-%Y)_UP.txt
+						              cat $HOME/Script/NMAP/$(date +%d-%m-%Y)_"$IP"_UP.txt
 							    		echo
 										  echo
 										  echo "------------------------------------------ "
-										  echo "			Aperte o ENTER pra continuar"
+										  echo "Aperte o ENTER pra continuar"
 										  echo "------------------------------------------ "
 										  read;
 											NMAP
 											read;
-										else
+							elif [ $NUM -eq "4" ]; then
+						          echo
+								      echo "------------------------------------------ "
+								      echo "               SSL                    "
+								      echo "------------------------------------------ "
+								      echo
+						              cat $HOME/Script/NMAP/$(date +%d-%m-%Y)_"$IP"_ssl.txt
+							    		echo
 										  echo
 										  echo "------------------------------------------ "
-							        echo "            Opção inválida......"
-							        echo "------------------------------------------ "
-							        echo
-							        sleep 2; NMAP;
+										  echo "	Aperte o ENTER pra continuar"
+										  echo "------------------------------------------ "
+										  read;
+											NMAP
+											read;
+							elif [ $NUM -ne "1, 2, 3, 4" ]; then
+									
+						clear
+						echo
+						echo "Opção inválida"; sleep 3; Doacao;
+								
 							        fi
 							        read; NMAP;;
-		5 )
+		6 )
 				clear
 				echo "------------------------------------------ "
 				echo "  Lista de arquivos que serão deletados    "
@@ -562,7 +622,7 @@ NMAP ()
 							fi;
 							NMAP;;
 
-		6 ) clear; Principal;;
+		7 ) clear; Principal;;
 		* ) clear; echo; echo "Opção inválida"; sleep 3; NMAP;;
 	esac
 }
@@ -638,7 +698,7 @@ NSLookUP ()
 				echo "    Pesquisando site: "$PESQ;
 				echo "------------------------------------------- "
 				echo
-						nslookup -all $PESQ >> $HOME/Script/NSLookUP/$(date +%d-%m-%Y).txt;
+						nslookup -all $PESQ >> $HOME/Script/NSLookUP/$(date +%d-%m-%Y)_"$IP"_nslookup.txt;
 				echo
 				echo "Aperte o ENTER pra continuar";
 	      read
@@ -706,7 +766,7 @@ NSLookUP ()
 				echo "    Pesquisando site: "$PESQ;
 				echo "------------------------------------------- "
 				echo
-						nslookup -type=$TIPO $PESQ >> $HOME/Script/NSLookUP/$(date +%d-%m-%Y)_nslookup.txt;
+						nslookup -type=$TIPO $PESQ >> $HOME/Script/NSLookUP/$(date +%d-%m-%Y)_"$IP"_nslookup_mx_ns_soa.txt;
 				echo
 				echo "Aperte o ENTER pra continuar";
 		    read
@@ -813,13 +873,13 @@ Nikto ()
 														mkdir -p $HOME/Script/NIKTO/
 						fi;
 		        if [ ! -d "$HOME/Script/NIKTO/$(date +%d-%m-%Y)nikto.xml" ]; then
-	                	touch $HOME/Script/NIKTO/$(date +%d-%m-%Y)nikto.txt;
+	                	touch $HOME/Script/NIKTO/$(date +%d-%m-%Y)_"$HOST"_nikto.xml;
 	                echo
-	                echo "Pasta "$HOME/Script/NIKTO/$(date +%d-%m-%Y)nikto.xml "criada com sucesso";
+	                echo "Pasta "$HOME/Script/NIKTO/$(date +%d-%m-%Y)_"$HOST"_nikto.xml "criada com sucesso";
 	                echo
 	         		else
 	                echo
-	                echo "Diretório "$HOME/Script/NIKTO/$(date +%d-%m-%Y)nikto.xml" já exite";
+	                echo "Diretório "$HOME/Script/NIKTO/$(date +%d-%m-%Y)_"$HOST"_nikto.xml" já exite";
 	                echo
 	           fi;
 	            echo
@@ -829,7 +889,7 @@ Nikto ()
 			        echo "Pesquisando" $HOST;
 			        echo "------------------------------------------- "
 			        echo
-			        		nikto -h $HOST -output $HOME/Script/NIKTO/$(date +%d-%m-%Y)nikto.xml;
+			        		nikto -h $HOST -output $HOME/Script/NIKTO/$(date +%d-%m-%Y)_"$HOST"_nikto.xml;
 			        echo
 			        echo "Aperte o ENTER pra continuar";
 			        read
@@ -838,12 +898,10 @@ Nikto ()
 		    2 ) clear
 	    	    echo
 		        echo "------------------------------------------- "
-					echo "             Atualizando Nikto              "
-					echo "------------------------------------------- "
-					echo
-								cd /usr/share/golismero/tools/nikto/
-								perl ./nikto.pl -update
-								cd - >/dev/null
+			echo "             Atualizando Nikto              "
+			echo "------------------------------------------- "
+			echo
+				sudo nikto -update
 					echo
 					echo
 					echo "------------------------------------------- "
@@ -856,59 +914,58 @@ Nikto ()
 			    read
 			    clear
 			    Nikto;;
-					5 )
-									clear
-									echo "------------------------------------------ "
-									echo "  Lista de arquivos que serão deletados    "
-									echo "------------------------------------------ "
-									echo
-										cd $HOME/Script/NIKTO/
-										pwd
-										echo
-										cd - >/dev/null
-										echo
-										ls -lah $HOME/Script/NIKTO/
-									echo
-									echo
-									echo "------------------------------------------ "
-									echo "Deseja realmente deletar o(s) arquivo(s)?"
-									echo "   Digite s ou n"
-									echo "------------------------------------------ "
-									read RESP
-									echo
-									echo
-										while [ "$RESP" != "s" -a "$RESP" != "n" ]; do
+					3 )
+						clear
+						echo "------------------------------------------ "
+						echo "  Lista de arquivos que serão deletados    "
+						echo "------------------------------------------ "
+						echo
+						cd $HOME/Script/NIKTO/
+						pwd
+						echo
+						cd - >/dev/null
+						echo
+						ls -lah $HOME/Script/NIKTO/
+						echo
+						echo
+						echo "------------------------------------------ "
+						echo "Deseja realmente deletar o(s) arquivo(s)?"
+						echo "   Digite s ou n"
+						echo "------------------------------------------ "
+						read RESP
+						echo
+						echo
+							while [ "$RESP" != "s" -a "$RESP" != "n" ]; do
 														echo
-											echo "Opção inválida. Digite s ou n"
-											read RESP
-											done
-											if [ "$RESP" = "s" ]; then
-												echo
-												echo
-												echo "------------------------------------------ "
-												echo "        Apagando arquivos de LOG           "
-												echo "------------------------------------------ "
-												echo
-
-													rm -rf $HOME/Script/NIKTO/*.*
-												echo
-												echo
-												echo "------------------------------------------ "
-												echo "       Arquivos de LOG deletados	  			 "
-												echo "------------------------------------------ "
-												echo
-												echo
-												echo
-												echo "Aperte o ENTER pra continuar"
-												read
-												NMAP;
-											fi
-												if [ "$RESP" = "n" ]; then
-																	echo
-																	echo "Voltando para o menu do NMAP"
-																	sleep 1;NIKTO;
-												fi;
-												NIKTO;;
+								echo "Opção inválida. Digite s ou n"
+								read RESP
+								done
+									if [ "$RESP" = "s" ]; then
+										echo
+										echo
+										echo "------------------------------------------ "
+										echo "        Apagando arquivos de LOG           "
+										echo "------------------------------------------ "
+										echo
+										rm -rf $HOME/Script/NIKTO/*.*
+										echo
+										echo
+										echo "------------------------------------------ "
+										echo "       Arquivos de LOG deletados	  			 "
+										echo "------------------------------------------ "
+										echo
+										echo
+										echo
+										echo "Aperte o ENTER pra continuar"
+										read
+										NMAP;
+									fi
+										if [ "$RESP" = "n" ]; then
+											echo
+											echo "Voltando para o menu do NMAP"
+											sleep 1;NIKTO;
+										fi;
+											NIKTO;;
 		    4 ) Principal;;
 			* ) echo "Opção inválida"; sleep 3; Nikto;;
 	 esac
@@ -1477,8 +1534,120 @@ IPs ()
 
 		#-------------   8 - Informações do IP Fim   -----------#
 
+		#-------------   9 - Informações de Midias Sociais Início -----------#
+Midias ()
+	{
+			clear
+			echo "------------------------------------------- "
+			echo "       Infomações de Mídias Sociais         "
+			echo "                 Sherlock                   "
+			echo "------------------------------------------- "
+			echo
+			echo
+			
+				while true
+					 do
+						echo "------------------------------------------- "
+						echo "1 - Instalar Sherlock"
+						echo "2 - Usando rede TOR"
+						echo -e "3 - \033[01;5;31mNão\033[0m usando rede TOR"
+						echo "4 - Menu Principal"
+						echo "------------------------------------------- "
+						echo
+						read NUM
+						clear
+						if [[ "$NUM" = "1" ]]
+						then
+						#-------------  Instalar Sherlock  -----------#
+						if [ ! -d "~/sherlock" ]
+							then
+							cd ~
+							
+							# clonar repositório
+							sudo git clone https://github.com/sherlock-project/sherlock.git
 
-		#-------------   9 - Doação Início   -----------#
+							# Entrando no diretório sherlock
+							cd sherlock
+
+							# Instalando requirements
+							sudo python3 -m pip install -r requirements.txt
+								echo
+								echo
+								echo "Aperte o ENTER pra continuar";
+								read
+								clear
+								Midias;
+						fi
+								
+						#-------------  Via TOR  -----------#
+						elif [[ "$NUM" = "2" ]]
+						then
+							# Entrando no diretório sherlock
+							cd ~/sherlock
+							echo
+							echo
+							echo -e "Digite o nome do usuário a ser pesquisado. "
+							read USER
+							echo
+							clear
+							echo
+							echo
+							sudo python3 sherlock --tor $USER
+							sudo mv $USER.txt ~/Desktop
+							clear
+							echo
+							echo -e "\033[1;36m$USER.txt\033[0m Salvo em \033[1;36m ~/Desktop \033[0m" 
+							echo
+							echo
+							echo
+							echo "Aperte o ENTER pra continuar"
+							read
+							clear
+							Midias;
+						
+						#-------------  SEM TOR  -----------#
+						elif [[ "$NUM" = "3" ]]
+						then
+							# Entrando no diretório sherlock
+							cd ~/sherlock
+							echo
+							echo
+							echo -e "Digite o nome do usuário a ser pesquisado. "
+							read USER
+							echo
+							clear
+							echo
+							echo
+							sudo python3 sherlock $USER
+							clear
+							sudo mv $USER.txt ~/Desktop
+							echo
+							echo -e "\033[1;36m$USER.txt\033[0m Salvo em \033[1;36m ~/Desktop \033[0m" 
+							echo
+							echo
+							echo
+							echo "Aperte o ENTER pra continuar"
+							read
+							clear
+							Midias;
+						
+						#-------------  Voltar ao Menu Principal  -----------#
+						elif [[ "$NUM" = "4" ]];
+						then
+						clear
+						Principal;
+						elif [[ "$NUM" -ne "1, 2, 3, 4" ]]
+							then
+								clear
+								echo
+								echo "Opção inválida"; sleep 3; Midias;
+						fi
+				done
+				
+	}
+		#-------------   9 - Informações de Midias Sociais Fim -----------#
+
+		#-------------   10 - Doação Início   -----------#
 
 Doacao ()
 	{
@@ -1492,7 +1661,7 @@ Doacao ()
 		echo
 			while true
 				do
-					echo "Se você gostou do meu script se quiser pode me pagar um café."
+					echo "Se você gostou do meu script e quiser, pode me pagar um café."
 					echo -e "1 - Ver QR Code \033[1;33mMercado Livre\033[0m"
 					echo -e "2 - Ver QR Code \033[01;35mNubank\033[0m"
 					echo "3 - Ver dados bancários (transferência)"
@@ -1553,7 +1722,7 @@ Doacao ()
 				done
 	}
 
-		#-------------   9 - Doação Fim   -----------#
+		#-------------   10 - Doação Fim   -----------#
 
 
 
