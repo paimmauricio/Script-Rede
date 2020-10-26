@@ -74,11 +74,11 @@ Se você gostou do meu script e quiser, pode me pagar um café.
 If you liked my script if you want you can buy me a coffee.
 
 ## Via transferência NuBank
-Agência: 0001
-C/C: 281087-1
-Banco 260 - Nu Pagamentos S.A. (Nubank)
+Agência: 0001<br />
+C/C: 281087-1<br />
+Banco 260 - Nu Pagamentos S.A. (Nubank)<br />
 
-##Via QR Code Nubank
+## Via QR Code Nubank
 <a href="https://github.com/paimmauricio/Script-Rede/blob/main/QRs/QR_Code_Nubank.pdf"> QR Code Nubank</a>
 
 ## Via QR Code Mercado Pago
