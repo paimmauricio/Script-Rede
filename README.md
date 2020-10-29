@@ -84,6 +84,12 @@ Banco 260 - Nu Pagamentos S.A. (Nubank)<br />
 ## Via QR Code Mercado Pago
 <a href="https://github.com/paimmauricio/Script-Rede/blob/main/QRs/QR_Code_ML.pdf"> QR Code Mercado Pago</a>
 
+## Via QR Code PayPal
+<a href="https://github.com/paimmauricio/Script-Rede/blob/main/QRs/QR_Code_PayPal.png"> QR Code PayPal</a>
+
+## Via Site PayPal
+<a href="https://www.paypal.com/donate?hosted_button_id=YJNX67EAAHNCU"> Direto pelo PayPal </a>
+
 
 ## Versão
 

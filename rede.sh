@@ -1662,10 +1662,12 @@ Doacao ()
 			while true
 				do
 					echo "Se você gostou do meu script e quiser, pode me pagar um café."
-					echo -e "1 - Ver QR Code \033[1;33mMercado Livre\033[0m"
+					echo -e "1 - Ver QR Code \033[01;33mMercado Livre\033[0m"
 					echo -e "2 - Ver QR Code \033[01;35mNubank\033[0m"
-					echo "3 - Ver dados bancários (transferência)"
-					echo "4 - Voltar"
+					echo -e "3 - Ver QR Code \033[01;36mPayPal\033[0m"
+					echo -e "4 - Ver Site \033[01;36mPayPal\033[0m"
+					echo "5 - Ver dados bancários (transferência)"
+					echo "6 - Voltar"
 					echo "Digite o número da opção: "
 					read DOACAO
 					
@@ -1673,25 +1675,59 @@ Doacao ()
 					then
 						echo
 						echo
+						clear
+						echo
+						echo
 						echo " Seu navegador irá abrir em seguida!"
 						sleep 3
 						echo
 						echo
-							gio open "https://github.com/paimmauricio/Script-Rede/blob/main/QRs/QR_Code_ML.pdf"
+							gio open "https://github.com/paimmauricio/Script-Rede/blob/main/QRs/QR_Code_ML.pdf" 2>/dev/null
 						clear
 						Doacao;
 					elif [[ "$DOACAO" = "2" ]]
 					then
 						echo
 						echo
+						clear
+						echo
+						echo
 						echo " Seu navegador irá abrir em seguida!"
 						sleep 3
 						echo
 						echo
-							gio open "https://github.com/paimmauricio/Script-Rede/blob/main/QRs/QR_Code_Nubank.pdf"
+							gio open "https://github.com/paimmauricio/Script-Rede/blob/main/QRs/QR_Code_Nubank.pdf" 2>/dev/null
 						clear
 						Doacao;
 					elif [[ "$DOACAO" = "3" ]]
+					then
+						echo
+						echo
+						clear
+						echo
+						echo
+						echo " Seu navegador irá abrir em seguida!" 
+						sleep 3
+						echo
+						echo
+							gio open "https://github.com/paimmauricio/Script-Rede/blob/main/QRs/QR_Code_PayPal.png" 2>/dev/null
+						clear
+						Doacao;
+					elif [[ "$DOACAO" = "4" ]]
+					then
+						echo
+						echo
+						clear
+						echo
+						echo
+						echo " Seu navegador irá abrir em seguida!"
+						sleep 3
+						echo
+						echo
+							gio open "https://www.paypal.com/donate?hosted_button_id=YJNX67EAAHNCU" 2>/dev/null
+						clear
+						Doacao;
+					elif [[ "$DOACAO" = "5" ]]
 					then
 						clear
 						echo
@@ -1708,11 +1744,11 @@ Doacao ()
 						echo
 						clear
 						Doacao;
-						elif [[ "$DOACAO" = "4" ]]
+						elif [[ "$DOACAO" = "6" ]]
 					then
 						clear
 						Principal;
-						elif [[ "$DOACAO" -ne "1,2,3,4" ]]
+						elif [[ "$DOACAO" -ne "1,2,3,4,5,6" ]]
 					then	
 						clear
 						echo
