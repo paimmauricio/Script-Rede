@@ -5,6 +5,15 @@
 Meu primeiro Script escrito em bash para facilitar alguns comandos
 Totalmente intuitivo
 
+## Reclamações
+
+Não faça. Delete a pasta e não use.
+
+## Sugestões e dicas
+
+São sempre bem vindas.
+Me ajude a melhorar.
+Estou aqui para aprender.
 
 ## Tecnologia
 
@@ -21,24 +30,24 @@ Linguagem em bash com comandos de Linux para usar o seguinte softwares.<br />
 * - Sherlok = Pesquisa de usuários em mídias sociais.<br />
 
 ## Como usar
-     Abra o terminal e execute os seguintes comandos:
+     * Abra o terminal e execute os seguintes comandos:
 
     	#sudo apt-get update
     	#sudo apt-get install git
 
-    Verifique se a instalação ocorreu com sucesso usando git --version.
-    Execute os seguintes comandos no terminal para configurar seu e-mail e nome de usuário que serão associados à sua conta GIT:
+    * Verifique se a instalação ocorreu com sucesso usando git --version.
+    * Execute os seguintes comandos no terminal para configurar seu e-mail e nome de usuário que serão associados à sua conta GIT:
 
     	#git config --global user.name "Seu_Nome"
     	#git config --global user.email "exemplo@seuemail.com.br"
 
     Baixe o repositório
 
-	Abra um terminal
-	Vá para o diretório que deseja salvar e digite:
+	* Abra um terminal
+	* Vá para o diretório que deseja salvar e digite:
 		$ git clone https://github.com/paimmauricio/Script-Rede.git
 
-	Pressione o ENTER
+	* Pressione o ENTER
 
 	  Caso não ocorra erro nenhum uma mensagem parecida com essa deverá aparecer:
 
@@ -49,9 +58,9 @@ Linguagem em bash com comandos de Linux para usar o seguinte softwares.<br />
 		remote: Total 9 (delta 0), reused 0 (delta 0), pack-reused 0
 		Unpacking objects: 100% (9/9), 28.07 KiB | 1.48 MiB/s, done.
 
-    Para transformar o arquivo rede.sh em executável, digite: chmod +x rede.sh
+    * Para transformar o arquivo script.sh em executável, digite: chmod +x script.sh
 
-    Para executá-lo digite: ./rede.sh
+    * Para executá-lo digite: ./script.sh
 
 
 
