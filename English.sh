@@ -1209,10 +1209,9 @@ Recognition ()
 				echo
 			else
 				echo
-				echo "Directory "~/Script/Recognition/$(date +%d-%m-%Y)_"$IP"_precognition.txt "already exists";
+				echo "Folder "~/Script/Recognition/$(date +%d-%m-%Y)_"$IP"_recognition.txt "already exists";
 				echo
 			fi;
-			echo >> ~/Script/Recognition/$(date +%d-%m-%Y)_"$IP"_recognition.txt
 			echo >> ~/Script/Recognition/$(date +%d-%m-%Y)_"$IP"_recognition.txt
 			printf " ----- NMAP -----" >> ~/Script/Recognition/$(date +%d-%m-%Y)_"$IP"_recognition.txt
 			echo "Running Nmap ..."
@@ -1220,7 +1219,7 @@ Recognition ()
 			echo >> ~/Script/Recognition/$(date +%d-%m-%Y)_"$IP"_recognition.txt
 			printf " ----- Gobuster -----" >> ~/Script/Recognition/$(date +%d-%m-%Y)_"$IP"_recognition.txt
 			echo "Running Gobuster ..."
-			gobuster -u http://$IP -w /usr/share/dirb/wordlists/common.txt -q -n -e -fw -v >> ~/Script/Recognition/$(date +%d-%m-%Y)_"$IP"_recognition.txt
+			gobuster dir -u http://$IP -w /usr/share/dirb/wordlists/common.txt -t 20 >> ~/Script/Recognition/$(date +%d-%m-%Y)_"$IP"_recognition.txt
 			echo >> ~/Script/Recognition/$(date +%d-%m-%Y)_"$IP"_recognition.txt
 			printf " ----- WhatWeb -----" >> ~/Script/Recognition/$(date +%d-%m-%Y)_"$IP"_recognition.txt
 			echo "Running WhatWeb ..."

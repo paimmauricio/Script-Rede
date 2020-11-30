@@ -1198,13 +1198,14 @@ Reconhecimento ()
 			echo "       Exeutando Reconhecimento             "
 			echo "------------------------------------------- "
 			echo
-			echo "Digite o IP: "
+			echo "Digite o IP ou Site: "
+			echo "Exemplo: 192.168.1/ www.teste.com.br"
 			read IP
 			if [ "$IP" == "" ]
 				then
 					echo "Você esqueceu o endereço IP ou Site!!"
 					echo "Exemplo: 192.168.1/ www.teste.com.br"
-			fi
+				fi
 			if [ ! -d "~/Script/Reconhecimento" ]; then
 				sudo mkdir -p -m 777 ~/Script/Reconhecimento/
 			fi;
@@ -1215,23 +1216,23 @@ Reconhecimento ()
 				echo
 			else
 				echo
-				echo "Diretório "~/Script/Reconhecimento/$(date +%d-%m-%Y)_"$IP"_paused.conf" já exite";
+				echo "Pasta "~/Script/Reconhecimento/$(date +%d-%m-%Y)_"$IP"_reconhecimento.txt;" já exite";
 				echo
 				fi;
-				echo >> ~/Script/Recognition/$(date +%d-%m-%Y)_"$IP"_recognition.txt
-			echo >> ~/Script/Recognition/$(date +%d-%m-%Y)_"$IP"_recognition.txt
-			printf " ----- NMAP -----" >> ~/Script/Recognition/$(date +%d-%m-%Y)_"$IP"_recognition.txt
+			touch ~/Script/Reconhecimento/$(date +%d-%m-%Y)_"$IP"_reconhecimento.txt;
+			echo >> ~/Script/Reconhecimento/$(date +%d-%m-%Y)_"$IP"_reconhecimento.txt
+			printf " ----- NMAP -----" >> ~/Script/Reconhecimento/$(date +%d-%m-%Y)_"$IP"_reconhecimento.txt
 			echo "Running Nmap ..."
-			sudo nmap $IP >> ~/Script/Recognition/$(date +%d-%m-%Y)_"$IP"_recognition.txt
-			echo >> ~/Script/Recognition/$(date +%d-%m-%Y)_"$IP"_recognition.txt
-			printf " ----- Gobuster -----" >> ~/Script/Recognition/$(date +%d-%m-%Y)_"$IP"_recognition.txt
+			sudo nmap $IP >> ~/Script/Reconhecimento/$(date +%d-%m-%Y)_"$IP"_reconhecimento.txt
+			echo >> ~/Script/Reconhecimento/$(date +%d-%m-%Y)_"$IP"_reconhecimento.txt
+			printf " ----- Gobuster -----" >> ~/Script/Reconhecimento/$(date +%d-%m-%Y)_"$IP"_reconhecimento.txt
 			echo "Running Gobuster ..."
-			gobuster -u http://$IP -w /usr/share/dirb/wordlists/common.txt -q -n -e -fw -v >> ~/Script/Recognition/$(date +%d-%m-%Y)_"$IP"_recognition.txt
-			echo >> ~/Script/Recognition/$(date +%d-%m-%Y)_"$IP"_recognition.txt
-			printf " ----- WhatWeb -----" >> ~/Script/Recognition/$(date +%d-%m-%Y)_"$IP"_recognition.txt
+			gobuster dir -u http://$IP -w /usr/share/dirb/wordlists/common.txt -t 20 >> ~/Script/Reconhecimento/$(date +%d-%m-%Y)_"$IP"_reconhecimento.txt
+			echo >> ~/Script/Reconhecimento/$(date +%d-%m-%Y)_"$IP"_reconhecimento.txt
+			printf " ----- WhatWeb -----" >> ~/Script/Reconhecimento/$(date +%d-%m-%Y)_"$IP"_reconhecimento.txt
 			echo "Running WhatWeb ..."
 			whatweb -v -a 3 $IP
-					sleep 3; Reconhecimento;;
+			sleep 3; Reconhecimento;;
 		2 )
 			clear
 			echo "------------------------------------------- "
